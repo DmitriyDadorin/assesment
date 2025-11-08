@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Карта компетенций</title>
+<style>
+  :root{
+    --bg: #0f1220;
+    --card: #14182b;
+    --card-2: #11162a;
+    --text: #e7ebf6;
+    --muted: #a9b3c9;
+    --accent: #6ea8fe;
+    --accent-2: #9a9dfd;
+    --border: #23294a;
+    --chip: #1e2442;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f7f8fc; --card:#ffffff; --card-2:#ffffff;
+      --text:#0f1320; --muted:#4c5773; --accent:#2f6bff; --accent-2:#7647ff; --border:#e6e8f2; --chip:#f1f3fb;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:48px 18px; background:radial-gradient(1200px 600px at 10% -10%, rgba(110,168,254,.18), transparent),
+                                   radial-gradient(900px 500px at 100% 0, rgba(154,157,253,.14), transparent),
+                                   var(--bg);
+    color:var(--text); font:500 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  }
+  .wrap{max-width:1100px; margin:0 auto}
+  .title{
+    font-size: clamp(22px,3.2vw,36px);
+    font-weight:800; letter-spacing:.2px; margin:0 0 18px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .subtitle{
+    margin: 28px 0 14px; font-size: clamp(18px,2.4vw,24px); font-weight:750;
+    color:var(--text)
+  }
+  .card{
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    border:1px solid var(--border);
+    border-radius:18px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.20);
+    overflow:hidden;
+  }
+  table{
+    width:100%; border-collapse:separate; border-spacing:0; overflow:hidden;
+  }
+  thead th{
+    text-align:left; font-weight:750; font-size:14px; color:var(--muted);
+    padding:14px 14px; border-bottom:1px solid var(--border); position:sticky; top:0; background:linear-gradient(180deg, var(--card), var(--card-2));
+    z-index:1;
+  }
+  tbody td{
+    vertical-align:top; padding:14px; border-bottom:1px dashed var(--border);
+  }
+  tbody tr:last-child td{ border-bottom:none }
+  .cat{
+    width:280px; font-weight:700; color:var(--text);
+  }
+  ul{margin:0; padding-left:18px}
+  ul ul{margin-top:4px}
+  li{margin:2px 0}
+  .chip{
+    display:inline-block; padding:.2rem .6rem; border-radius:999px;
+    background:var(--chip); border:1px solid var(--border); color:var(--text);
+    font-weight:600; font-size:12px; margin:2px 4px 2px 0;
+  }
+  .grid{display:grid; gap:18px}
+  @media (min-width:860px){ .grid{grid-template-columns:1fr} }
+  .section{margin:28px 0}
+  .sr{position:absolute; left:-9999px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title">Карта компетенций</h1>
+
+    <!-- Методологии разработки -->
+    <div class="section">
+      <h2 class="subtitle">Методологии разработки</h2>
+      <div class="card">
+        <table aria-label="Методологии разработки">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Проектный менеджмент</td>
+              <td>
+                <ul>
+                  <li>Метод критической цепи</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Продуктовый менеджмент</td>
+              <td>
+                <ul>
+                  <li>Базовые знания продуктового управления</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Методологии разработки</td>
+              <td>
+                <ul>
+                  <li>Инкрементально-итеративная разработка</li>
+                  <li>Waterfall</li>
+                  <li>Scrum
+                    <ul>
+                      <li>Основные роли, церемонии и принципы</li>
+                    </ul>
+                  </li>
+                  <li>Командные топологии
+                    <ul>
+                      <li>Закон Конвея</li>
+                      <li>Team Topologies</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Производственный процесс -->
+    <div class="section">
+      <h2 class="subtitle">Производственный процесс</h2>
+      <div class="card">
+        <table aria-label="Производственный процесс">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Архитектурное и техническое решение</td>
+              <td>
+                <ul>
+                  <li>Архитектура и атрибуты качества архитектуры</li>
+                  <li>Тактики работы с атрибутами качества</li>
+                  <li>Процесс проектирования архитектурного решения</li>
+                  <li>API-first design</li>
+                  <li>Артефакты архитектуры C4, Rozanski &amp; Woods</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Тестирование</td>
+              <td>
+                <ul>
+                  <li>Пирамида тестирования</li>
+                  <li>Типы тестов
+                    <ul>
+                      <li>Юнит / интеграционные / API / функциональные</li>
+                      <li>Ручные / автоматизированные</li>
+                    </ul>
+                  </li>
+                  <li>Тестирование микросервисов
+                    <ul>
+                      <li>Контрактное тестирование</li>
+                      <li>Нагрузочное тестирование</li>
+                      <li>Деструктивное тестирование</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Развертывание и инфраструктура</td>
+              <td>
+                <ul>
+                  <li>Контейнеризация и виртуализация</li>
+                  <li>Serverless</li>
+                  <li>Концепция IaC</li>
+                  <li>CI/CD</li>
+                  <li>Паттерны обнаружения сервисов</li>
+                  <li>Паттерны конфигурирования</li>
+                  <li>Паттерны развертывания
+                    <ul>
+                      <li>Recreate</li>
+                      <li>Rolling</li>
+                      <li>Blue-Green</li>
+                      <li>A/B</li>
+                      <li>Feature Toggles</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Наблюдаемость</td>
+              <td>
+                <ul>
+                  <li>Мониторинг
+                    <ul>
+                      <li>Push / pull модель сбора метрик</li>
+                      <li>4 Golden Signals</li>
+                      <li>USE-модель</li>
+                      <li>RED-модель</li>
+                    </ul>
+                  </li>
+                  <li>Алертинг</li>
+                  <li>Распределённые трассировки</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Системный дизайн -->
+    <div class="section">
+      <h2 class="subtitle">Системный дизайн</h2>
+      <div class="card">
+        <table aria-label="Системный дизайн">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Stateless компоненты</td>
+              <td>
+                <ul>
+                  <li>Балансировщики</li>
+                  <li>Прокси и reverse-proxy</li>
+                  <li>Service Mesh</li>
+                  <li>BFF</li>
+                  <li>API Gateway</li>
+                  <li>CDN</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Stateful компоненты</td>
+              <td>
+                <ul>
+                  <li>Модели консистентности хранилищ</li>
+                  <li>CAP-теорема</li>
+                  <li>PACELC-теорема</li>
+                  <li>Паттерны шардирования</li>
+                  <li>Паттерны кэширования</li>
+                  <li>Модели хранения данных
+                    <ul>
+                      <li>SQL</li>
+                      <li>NoSQL
+                        <ul>
+                          <li>Key-Value</li>
+                          <li>Column-based</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>Event Sourcing</li>
+                  <li>CQRS</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Очереди</td>
+              <td>
+                <ul>
+                  <li>Push / pull модель</li>
+                  <li>Гарантии доставки
+                    <ul>
+                      <li>At least once</li>
+                      <li>At most once</li>
+                      <li>Exactly once</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Взаимодействие</td>
+              <td>
+                <ul>
+                  <li>Асинхронное и синхронное взаимодействие</li>
+                  <li>Связь через общую БД, файловая интеграция</li>
+                  <li>Pub/Sub</li>
+                  <li>Оркестрация и хореография</li>
+                  <li>Событийно-ориентированные архитектуры
+                    <ul>
+                      <li>Events for Notification</li>
+                      <li>Event Collaboration</li>
+                      <li>Events for State Transfer</li>
+                      <li>Паттерны проектирования событий, доменные события</li>
+                    </ul>
+                  </li>
+                  <li>Идемпотентность и коммутативность API</li>
+                  <li>Надёжная отправка и доставка сообщений
+                    <ul>
+                      <li>Transactional Outbox</li>
+                      <li>Transactional Log Miner</li>
+                      <li>CDC + Kafka Connect</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Транзакции</td>
+              <td>
+                <ul>
+                  <li>Распределённые транзакции
+                    <ul>
+                      <li>2-/3-фазные коммиты</li>
+                      <li>Saga</li>
+                    </ul>
+                  </li>
+                  <li>CRDT-структуры</li>
+                  <li>Оптимистичные и пессимистичные блокировки</li>
+                  <li>Compare-and-Set паттерн</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Отказоустойчивость, масштабируемость и производительность</td>
+              <td>
+                <ul>
+                  <li>Active-Active, Active-Passive, георезервирование</li>
+                  <li>Паттерны на уровне взаимодействий
+                    <ul>
+                      <li>Circuit Breaker</li>
+                      <li>Rate Limits</li>
+                      <li>Timeouts</li>
+                      <li>Bulkhead</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- AI и LLM -->
+    <div class="section">
+      <h2 class="subtitle">AI и LLM</h2>
+      <div class="card">
+        <table aria-label="AI и LLM">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Промптинг</td>
+              <td>
+                <ul>
+                  <li>Как должен выглядеть запрос</li>
+                  <li>Общие рекомендации к составлению запросов к LLM</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Общие знания LLM</td>
+              <td>
+                <ul>
+                  <li>Что такое LLM-модель</li>
+                  <li>Какие проблемы возникают при использовании LLM-моделей</li>
+                  <li>Принципы работы LLM-моделей</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">RAG</td>
+              <td>
+                <ul>
+                  <li>Что такое RAG</li>
+                  <li>Виды RAG-хранилищ и работа с ними</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Мультиагентность</td>
+              <td>
+                <ul>
+                  <li>Что такое агент</li>
+                  <li>Свойства агентов</li>
+                  <li>Мультиагентные системы</li>
+                  <li>MCP, A2A, ACL — для чего нужны</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Различные стили архитектуры -->
+    <div class="section">
+      <h2 class="subtitle">Различные стили архитектуры</h2>
+      <div class="card">
+        <table aria-label="Различные стили архитектуры">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Монолитный стиль</td>
+              <td>
+                <ul>
+                  <li>Архитектуры монолитных приложений
+                    <ul>
+                      <li>Слоистые архитектуры</li>
+                      <li>Clean Architecture / Гексагональная архитектура</li>
+                    </ul>
+                  </li>
+                  <li>Паттерны предметно-ориентированного проектирования</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Микросервисный стиль</td>
+              <td>
+                <ul>
+                  <li>Плюсы, минусы и подводные камни микросервисной архитектуры</li>
+                  <li>Обзор паттернов микросервисных приложений</li>
+                  <li>Обзор технологий и инструментов</li>
+                  <li>Паттерны декомпозиции микросервисов
+                    <ul>
+                      <li>Event Storming</li>
+                      <li>Service as Aggregate</li>
+                      <li>Microservice Canvas</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Общетехнические компетенции -->
+    <div class="section">
+      <h2 class="subtitle">Общетехнические компетенции</h2>
+      <div class="card">
+        <table aria-label="Общетехнические компетенции">
+          <thead>
+            <tr><th class="cat">Область</th><th>Область компетенции</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Основы алгоритмов и структур данных</td>
+              <td>
+                <ul>
+                  <li>Основные структуры данных: массивы, списки, хэш-таблицы, деревья</li>
+                  <li>Основные алгоритмы: сортировка, поиск</li>
+                </ul>
+              </td>
+            </tr>
+            <tr><td class="cat">Основы сетей</td><td><span class="chip">TCP/IP</span><span class="chip">DNS</span><span class="chip">HTTP</span></td></tr>
+            <tr><td class="cat">Основы безопасности</td><td><span class="chip">OWASP</span><span class="chip">TLS</span><span class="chip">OAuth 2.0</span></td></tr>
+            <tr><td class="cat">Основы HTTP</td><td><span class="chip">Статусы</span><span class="chip">Кеширование</span><span class="chip">Идемпотентность</span></td></tr>
+            <tr><td class="cat">Основы программирования</td><td><span class="chip">Парадигмы</span><span class="chip">Сложность</span><span class="chip">Тестирование</span></td></tr>
+            <tr><td class="cat">Основы баз данных</td><td><span class="chip">Нормализация</span><span class="chip">Индексы</span><span class="chip">Транзакции</span></td></tr>
+            <tr><td class="cat">Основы операционных систем</td><td><span class="chip">Процессы</span><span class="chip">Потоки</span><span class="chip">Память</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Технологические решения -->
+    <div class="section">
+      <h2 class="subtitle">Технологические решения</h2>
+      <div class="card">
+        <table aria-label="Технологические решения">
+          <thead>
+            <tr><th class="cat">Область</th><th>Инструменты</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="cat">Очереди</td><td><span class="chip">Kafka</span> <span class="chip">Artemis MQ</span></td></tr>
+            <tr><td class="cat">Базы данных</td><td><span class="chip">PostgreSQL</span></td></tr>
+            <tr><td class="cat">Кэши</td><td><span class="chip">Apache Ignite</span> <span class="chip">Redis</span></td></tr>
+            <tr><td class="cat">Оркестратор рабочей нагрузки</td><td><span class="chip">Kubernetes</span> <span class="chip">OpenShift</span></td></tr>
+            <tr><td class="cat">Наблюдаемость</td><td><span class="chip">Prometheus</span> <span class="chip">Dynatrace</span> <span class="chip">Sentry</span></td></tr>
+            <tr><td class="cat">Балансировщики</td><td><span class="chip">Envoy</span> <span class="chip">Nginx</span> <span class="chip">HAProxy</span></td></tr>
+            <tr><td class="cat">Протоколы взаимодействия</td><td><span class="chip">REST</span> <span class="chip">JSON-RPC</span> <span class="chip">gRPC</span> <span class="chip">GraphQL</span> <span class="chip">SOAP/WSDL</span></td></tr>
+            <tr><td class="cat">Контейнеризация</td><td><span class="chip">Docker</span></td></tr>
+            <tr><td class="cat">Форматы данных</td><td><span class="chip">JSON</span> <span class="chip">JSON Schema</span> <span class="chip">XML</span> <span class="chip">Avro</span> <span class="chip">Protobuf</span></td></tr>
+            <tr><td class="cat">Языки описания контрактов</td><td><span class="chip">OpenAPI</span> <span class="chip">Protobuf</span></td></tr>
+            <tr><td class="cat">Тестирование</td><td><span class="chip">Locust</span> <span class="chip">JMeter</span> <span class="chip">Cucumber</span> <span class="chip">Testcontainers</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p style="margin:26px 4px 0; color:var(--muted); font-weight:600">
+      Подходит для вставки в Wiki/Notion/Confluence. Адаптивная, тёмная/светлая тема поддерживаются автоматически.
+    </p>
+  </div>
+</body>
+</html>
